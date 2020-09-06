@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: Service 
+metadata:
+    name: client-cluster-ip-service 
+spec:
+    type: ClusterIP 
+    selector: # to decide which pods in the deployment to direct traffic to
+        component: web 
+    ports: 
+        - port: 3000 # how other objects inside cluster access the pod
+          targetPort: 3000 # the port on THIS pod that we are providing access to
